@@ -1,0 +1,27 @@
+body{
+    //background: url('../images/ricepaper.png');
+    //background: url('../images/grey_wash_wall.png');
+    //min-height:900px;
+}
+table{
+    //background:white;
+}
+.parsley-required{
+    display:none;
+}
+.parsley-error{
+    border-color: #FF3333;
+    background-color: #FFCCCC;
+}
+thead,tfoot{
+    font-weight: bolder;
+}
+thead tr,tfoot tr{
+    background: #8099E6;
+    color:white;
+}
+.printonly{
+    display:none;
+}
+
+
