@@ -19,6 +19,7 @@
                 </button>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="<?php echo site_url('Mobile/store_catalogue'); ?>"><span class="glyphicon glyphicon-user"></span>Store Front</a></li>
+                     <li><a href="<?php echo site_url('Mobile/all_mobiles'); ?>"><span class="glyphicon glyphicon-user"></span>Store Admin Panel</a></li>
                     <li><a href="<?php echo site_url('Mobile/store_search'); ?>"><span class="glyphicon glyphicon-cog"></span>Search</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Login/Register</a></li>
                     <li class="divider"></li>

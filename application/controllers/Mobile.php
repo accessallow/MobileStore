@@ -8,7 +8,7 @@ class Mobile extends MY_Controller {
     }
 
     public function index() {
-        $this->load_view('pages/forms', null);
+        $this->store_catalogue();
     }
 
     public function store($mobile_id) {
@@ -235,6 +235,19 @@ class Mobile extends MY_Controller {
 //        echo var_dump($this->mobile_model->get_cart_items());
 //        echo '</pre>';
         $this->load_store_front_view('mobile/cart', $data);
+    }
+
+    function update_cart() {
+        
+        $data = array(
+            'rowid' => 'b99ccdf16028f015540f341130b6d8ec',
+            'qty' => 3
+        );
+
+        $this->cart->update($data);
+
+
+        redirect('Mobile/view_my_cart');
     }
 
     function add_to_cart($mobile_id) {
