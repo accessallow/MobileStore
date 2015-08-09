@@ -7,7 +7,7 @@ class MY_Controller extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
-
+        $this->load->model('mobile_model');
 
         //Authentication check
 //        if (1||$this->session->userdata('login')) {

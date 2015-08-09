@@ -23,7 +23,7 @@
                     <li><a href="<?php echo site_url('Mobile/store_search'); ?>"><span class="glyphicon glyphicon-cog"></span>Search</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Login/Register</a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo site_url('Mobile/view_my_cart'); ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Checkout</a></li>
+                    <li><a href="<?php echo site_url('cart'); ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Checkout</a></li>
                 </ul>
             </div>
         </div>

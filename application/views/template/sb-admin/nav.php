@@ -215,7 +215,7 @@
                     <li><a href="<?php echo site_url('Mobile/store_search'); ?>"><span class="glyphicon glyphicon-cog"></span>Search</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Login/Register</a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo site_url('Mobile/view_my_cart'); ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Checkout</a></li>
+                    <li><a href="<?php echo site_url('cart'); ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Checkout</a></li>
                 </ul>
                 <!-- /.dropdown-user -->
             </li>
@@ -237,9 +237,9 @@
                         </div>
                         <!-- /input-group -->
                     </li>
-                    <li>
+<!--                    <li>
                         <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a href="#"><i class="fa fa-mobile-phone fa-fw"></i> Mobiles<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -255,7 +255,7 @@
                     <li>
                         <a href="<?php echo site_url('Order/all_orders'); ?>"><i class="fa fa-table fa-fw"></i> Orders</a>
                     </li>
-                    <li>
+<!--                    <li>
                         <a href="<?php echo site_url('Shipment/all_shipments'); ?>"><i class="fa fa-edit fa-fw"></i> Shipments</a>
                     </li>
                     <li>
@@ -272,8 +272,8 @@
                             </li>
 
                         </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+                         /.nav-second-level 
+                    </li>-->
                     <!--                    <li>
                                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                                             <ul class="nav nav-second-level">

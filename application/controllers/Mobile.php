@@ -217,6 +217,7 @@ class Mobile extends MY_Controller {
     }
 
     function store_catalogue() {
+        $this->load->helper('form');
         $data = array(
             'mobiles' => $this->mobile_model->get_all()
         );

@@ -35,7 +35,7 @@ $cod = array(
             <td>Order Id</td>
             <td>Customer</td>
             <td>Email</td>
-            <td>Shipping Address</td>
+            <td>Date</td>
             <td>Phone</td>
             <td>Total Amount</td>
             <td>Status</td>
@@ -44,36 +44,43 @@ $cod = array(
 
     <tbody>
         <?php foreach ($orders as $m) { ?>
-            <tr>
+            <tr class="<?php
+            echo $m->status==1 ? "success":"";
+            ?>">
                 <td>
                     <a href="<?php echo site_url('Order/single/' . $m->id); ?>">
                         <?php echo $m->id; ?>
                     </a>
                     <span class="pull-right">
-                        <a href="<?php echo site_url('Order/store/' . $m->id); ?>"
+                        <a href="<?php echo site_url('Order/view_order/' . $m->id); ?>"
                            class="" 
                            data-toggle="tooltip" 
                            data-placement="right" 
                            title="Invoice for order#<?php echo $m->id; ?>">
-                            <span class="fa fa-file-o" style="font-size: 1.4em;margin-right: 5px;"></span>
+                            <span class="fa fa fa-cogs" style="font-size: 1.4em;margin-right: 5px;"></span>
                         </a>
-                        <a href="<?php echo site_url('Mobile/specifications/' . $m->id); ?>"
+<!--                        <a href="<?php echo site_url('Order/view_order/' . $m->id); ?>"
                            class="" 
                            data-toggle="tooltip" 
                            data-placement="right" 
                            title="Specifications for order#<?php echo $m->id; ?>">
                             <span class="fa fa-cogs" style="font-size: 1.4em;"></span>
-                        </a>
+                        </a>-->
                     </span>
 
                 </td>
                 <td><?php echo $m->customer_name; ?></td>
                 <td><?php echo $m->email; ?></td>
-                <td><?php echo $m->shipping_address; ?></td>
+                <td><?php echo $m->date; ?></td>
                 <td><?php echo $m->phone_number; ?></td>
                 <td><?php echo $m->total_amount; ?></td>
                 
-                <td><?php echo $m->status; ?></td>
+                <td><?php
+                
+                echo $m->status==0 ? "Pending":"Complete"; 
+                
+                ?>
+                </td>
             </tr>
         <?php } ?>
     </tbody>

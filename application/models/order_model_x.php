@@ -55,17 +55,17 @@ class Order_model extends CI_Model {
         if ($order) {
             $mobile = R::load('mobile', $mobile_id);
             $product = R::dispense("product");
-
+            
             $product->product_name = $mobile->title;
             $product->quantity = 1;
             $product->price = $mobile->actual_price;
-
+            
             $product_id = R::store($product);
-
+            
             $product = R::load('product', $product_id);
-
+            
             $order->ownProductsList[] = $product;
-
+            
             R::store($order);
         }
     }
@@ -76,21 +76,11 @@ class Order_model extends CI_Model {
     }
 
     public function get_all() {
-        $this->load->database();
-        $query_string = "select 
-                        o.serial as 'id',o.status,
-                        o.date,c.`name` as 'customer_name',
-                        c.email,c.address as 'shipping_address',
-                        c.phone as 'phone_number'
-                        from orders o,customers c
-                        where
-                        o.customerid = c.serial;";
-        $result = $this->db->query($query_string);
-        $r = $result->result();
-        foreach ($r as $order_entry) {
-            $order_entry->total_amount = $this->get_total_order_amount($order_entry->id);
+        $orders = R::findAll('order');
+        foreach ($orders as $o){
+            $o->total_amount = $this->get_total_order_amount($o->id);
         }
-        return $r;
+        return $orders;
     }
 
     public function search($search_term) {
@@ -110,62 +100,24 @@ class Order_model extends CI_Model {
     }
 
     public function get_one_order($id) {
-        $this->load->database();
-        $query_string = "select 
-                        o.serial as 'id',o.status,
-                        o.date,c.`name` as 'customer_name',
-                        c.email,c.address as 'shipping_address',
-                        c.phone as 'phone_number'
-                        from orders o,customers c
-                        where
-                        o.customerid = c.serial and o.serial=$id;";
-        $result = $this->db->query($query_string);
-        $r = $result->result();
-        if($r!=null){
-        foreach ($r as $order_entry) {
-            $order_entry->total_amount = $this->get_total_order_amount($order_entry->id);
-        }
-        return $r[0];
-        }else{
-            return null;
-        }
+        $order = R::load('order', $id);
+        return $order;
     }
 
-    public function update_order_status($id, $new_status) {
-        echo "mango fruti";
-        $this->db->update('orders', array('status' => $new_status), array(
-            'serial' => $id
-        ));
-        echo "mango here";
+    public function update_order_status($new_status) {
+        $order = R::load('order', $id);
+        $order->status = $new_status;
+        R::store($order);
     }
-
-    public function trashAll() {
+    public function trashAll(){
         R::wipe('order');
     }
-
-    public function get_total_order_amount($order_id) {
-        $sql = "select
-sum(quantity*price) as 'total'
-from 
-order_detail
-where orderid = $order_id;";
+    
+    public function get_total_order_amount($order_id){
+        $sql = "select sum(price) from product where order_id=$order_id;";
         $row = R::getAll($sql);
         $row = $row[0];
-        return $row['total'];
-    }
-
-    public function get_ordered_products($order_id) {
-        $this->load->database();
-        $query_string = "select
-                        o.productid as 'id',o.quantity,o.price,
-                        m.title
-                        from order_detail o,mobile m
-                        where
-                        o.productid = m.id
-                        and
-                        o.orderid = $order_id;";
-        $result = $this->db->query($query_string);
-        return $result->result();
+        return $row['sum(price)'];
     }
 
 }

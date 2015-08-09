@@ -20,12 +20,19 @@ class Order extends MY_Controller {
         
     }
 
-    public function single_order() {
-        
+    public function view_order($order_id) {
+        $data = array(
+            'products' => $this->om->get_ordered_products($order_id),
+            'order' => $this->om->get_one_order($order_id)
+        );
+        $this->load_view('order/single_order', $data);
     }
 
-    public function update_order_status($status) {
-        
+    public function update_order_status($order_id, $status) {
+        echo "mango fruti";
+        $this->om->update_order_status($order_id, $status);
+        echo "fresh n juicy";
+        redirect('Order/view_order/'.$order_id);
     }
 
     public function test() {
@@ -39,7 +46,7 @@ class Order extends MY_Controller {
 //        ));
 //        echo "Order Created!!!";
         $mobile_id = 1;
-        $this->om->add_product_to_order(1,$mobile_id);
+        $this->om->add_product_to_order(1, $mobile_id);
         echo "<br/>Product added!!!";
 
         echo $this->om->get_total_order_amount(1);
