@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "Product";
+$route['default_controller'] = "Mobile";
 $route['404_override'] = '';
 
 

@@ -17,4 +17,5 @@ class Cart_model extends CI_Model {
 
 		$this->cart->update($data);
 	}
+        
 }

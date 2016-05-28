@@ -48,6 +48,8 @@ class Billing extends MY_Controller {
 			endforeach;
 		endif;
 		
+                //Clearing the cart stuff now
+                $this->cart->destroy();
 		$this->load_store_front_view('mobile/order_complete',null);
 	}
 }

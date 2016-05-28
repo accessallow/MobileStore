@@ -48,10 +48,10 @@
 $active_group = 'local';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'mysql.1freehosting.com';
-$db['default']['username'] = 'u640191611_root';
-$db['default']['password'] = 'KGZKRWPa2n';
-$db['default']['database'] = 'u640191611_mylog';
+$db['default']['hostname'] = 'sql211.byethost31.com';
+$db['default']['username'] = 'b31_16654388';
+$db['default']['password'] = 'Ppankaj123';
+$db['default']['database'] = 'b31_16654388_mobile_store';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
